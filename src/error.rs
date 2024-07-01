@@ -59,7 +59,7 @@ pub enum HornedError {
 
     /// An error found during the parsing of an underlying format
     #[error("Parsing Error: {0}")]
-    ParserError(Box<dyn std::error::Error>, Location),
+    ParserError(Box<dyn std::error::Error + Send + Sync + 'static>, Location),
 
     /// Data has been given that would we cannot make sense or would
     /// result in invalid OWL
